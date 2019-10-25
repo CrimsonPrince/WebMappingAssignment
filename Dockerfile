@@ -13,10 +13,9 @@ RUN apt update
 RUN apt install -y \
 binutils \
 libproj-dev \
-gdal-bin \
-gunicorn
+gdal-bin
 RUN pip install pipenv
 RUN pipenv install --system
 
 #Set WorkDir To Application
-WORKDIR /usr/src/root
+WORKDIR /usr/src/root/root

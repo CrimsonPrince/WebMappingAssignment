@@ -3,9 +3,26 @@ version: '3'
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    labels:
+    - traefik.enable=true
+    - traefik.backend=flask_app
+    - traefik.port=8000
+    - traefik.frontend.rule=Host:web.r4.ie
+    - traefik.tags=${TRAEFIK_PUBLIC_TAG:-traefik-public}
+    - traefik.docker.network=traefik-public
+    # Traefik service that listens to HTTP
+    - traefik.redirectorservice.frontend.entryPoints=http
+    - traefik.redirectorservice.frontend.redirect.entryPoint=https
+    # Traefik service that listens to HTTPS
+    - traefik.webservice.frontend.entryPoints=https
+    command: gunicorn wsgi:app -w 6 --bind 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
       - "8000:8000"
+    networks:
+    - traefik-public
 
+networks:
+  traefik-public:
+    external: true

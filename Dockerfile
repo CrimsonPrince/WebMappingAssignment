@@ -1,14 +1,22 @@
+#Initial Setup, Maintainer Flag
 FROM python:3
 LABEL AUTHOR Arthur Coll
 ENV PYTHONUNBUFFERED 1
-RUN mkdir /code
-WORKDIR /code
-COPY . /code/
+ENV PYTHONDONTWRITEBYTECODE 1
+
+#Move App to /usr/src
+WORKDIR /usr/src/
+COPY . .
+
+#Install Dependencies with PipEnv and APT
 RUN apt update
 RUN apt install -y \
 binutils \
 libproj-dev \
-gdal-bin
+gdal-bin \
+gunicorn
 RUN pip install pipenv
 RUN pipenv install --system
-WORKDIR /code/root
+
+#Set WorkDir To Application
+WORKDIR /usr/src/root

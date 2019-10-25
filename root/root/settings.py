@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'root.wsgi.application'
 DATABASES = {
     'default': {
          'ENGINE': 'django.contrib.gis.db.backends.postgis',
-         'NAME': 'postgis',
+         'NAME': 'gis',
          'USER':   os.getenv("sqlUser"),
-         'PASSWORD': os.getenv("sqlPassword"),
-         'HOST': 'localhost',
-         'PORT': '25432',
+         'PASSWORD': os.getenv("sqlPass"),
+         'HOST': 'r4.ie',
+         'PORT': '5434',
     },
 }
 

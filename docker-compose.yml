@@ -5,7 +5,6 @@ services:
     build: .
     labels:
     - traefik.enable=true
-    - traefik.backend=flask_app
     - traefik.port=8000
     - traefik.frontend.rule=Host:web.r4.ie
     - traefik.tags=${TRAEFIK_PUBLIC_TAG:-traefik-public}

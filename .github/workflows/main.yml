@@ -15,4 +15,5 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd WebMappingAssignment
-          docker-compose up -d
+          docker-compose down
+          docker-compose up --build -d

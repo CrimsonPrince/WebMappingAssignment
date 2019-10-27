@@ -17,6 +17,7 @@ RUN pip install pipenv
 RUN pipenv install --system
 
 #Move App to /usr/src
+RUN mkdir app
 COPY ./root /app
 WORKDIR /app
 

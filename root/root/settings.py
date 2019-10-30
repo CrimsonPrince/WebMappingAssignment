@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'backend',
 ]
 
@@ -126,3 +127,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LEAFLET_CONFIG = {
+'DEFAULT_CENTER': ( 53.338501, -6.266567 ),
+'DEFAULT_ZOOM': 16,
+'MIN_ZOOM': 3,
+'MAX_ZOOM': 18,
+}

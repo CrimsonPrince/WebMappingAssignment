@@ -6,7 +6,7 @@ class Planning(models.Model):
     Planning_Authority = models.CharField(max_length=100)
     Tier = models.CharField(max_length=10)
     Planning_Reference = models.CharField(max_length=100)
-    Planning_Permission__Units_Perm = models.CharField(max_length=10)
+    Planning_Permission_Units_Perm = models.CharField(max_length=10, blank=True, null=True)
     Units_Completed_to_Date = models.CharField(max_length=10)
     Units_Under_Construction = models.CharField(max_length=10)
     Activity_On_Site = models.CharField(max_length=2)

@@ -18,15 +18,17 @@ export class HomePage {
 
     ngAfterViewInit() {
         this.plt.ready().then(() => {
-          this.http.get('https://oghuxxw1e6.execute-api.us-east-1.amazonaws.com/dev')
+          this.http.get('http://localhost:3000/locations')
           .subscribe(restaurants => this.initMap(restaurants));
         });
       }
 
       initMap(restaurants) {
-        const map = new Map('map').setView([33.6396965, -84.4304574], 23);
+        const map = new Map('map').setView([53, -8], 8);
 
         tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            useCache: true,
+	crossOrigin: true,
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
@@ -36,9 +38,11 @@ export class HomePage {
           popupAnchor: [0, -20]
         });
 
+        console.log(restaurants)
         restaurants.forEach((restaurant) => {
-          marker([restaurant.position.lat, restaurant.position.lgn], {icon: customMarkerIcon})
-          .bindPopup(`<b>${restaurant.title}</b>`, { autoClose: false })
+            console.log(restaurant)
+          marker([restaurant.geometry.coordinates[0], restaurant.geometry.coordinates[1]], {icon: customMarkerIcon})
+          .bindPopup(`<b>${restaurant.properties.name}</b>`, { autoClose: false })
           .on('click', () => this.router.navigateByUrl('/restaurant'))
           .addTo(map).openPopup();
         });

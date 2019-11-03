@@ -3,7 +3,7 @@ on: [push]
 jobs:
 
   build:
-    name: Build
+    name: Build Backend
     runs-on: ubuntu-latest
     steps:
     - name: Executes SSH and Deploy

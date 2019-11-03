@@ -1,4 +1,4 @@
 FROM httpd:2.4
 COPY ./frontend /usr/local/apache2/htdocs/
 ENTRYPOINT ["/usr/sbin/apache2"]
-CMD ["-D", "FOREGROUND"
+CMD ["-D", "FOREGROUND"]

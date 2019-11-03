@@ -24,12 +24,12 @@ export class HomePage {
       }
 
       initMap(restaurants) {
-        const map = new Map('map').setView([53, -8], 8);
+        const map = new Map('map').setView([53.3498, -6.2603], 12);
 
         tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             useCache: true,
-	crossOrigin: true,
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            crossOrigin: true,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
         const customMarkerIcon = icon({

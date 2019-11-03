@@ -1,9 +1,9 @@
-name: BuildBackend
+name: Deploy
 on: [push]
 jobs:
 
   build:
-    name: Build Backend
+    name: Build FrontEnd
     runs-on: ubuntu-latest
     steps:
     - name: Executes SSH and Deploy
@@ -16,5 +16,7 @@ jobs:
         script: |
           cd WebMappingAssignment
           git pull
+          cd frontend
+          ionic build --prod
           docker-compose down
-          docker-compose up --build -d
+          docker-compose up -d

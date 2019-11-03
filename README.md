@@ -10,7 +10,7 @@
     YOUR_SHORT_DESCRIPTION
     <br />
     <a href="https://github.com/crimsonprince/WebMappingAssignment"><strong>Explore the docs »</strong></a>
-    <br />
+    .
     <br />
     <a href="https://github.com/crimsonprince/WebMappingAssignment">View Demo</a>
     ·

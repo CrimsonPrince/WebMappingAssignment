@@ -2,8 +2,9 @@ version: '3'
 
 services:
   web:
-    context: .
-    dockerfile: Dockerfile-Frontend
+    build:
+        context: .
+        dockerfile: Dockerfile-Frontend
     labels:
     - traefik.enable=true
     - traefik.port=8000
@@ -25,8 +26,8 @@ services:
 
   ionic:
     build:
-    context: .
-    dockerfile: Dockerfile-Frontend
+        context: .
+        dockerfile: Dockerfile-Frontend
     labels:
       - traefik.frontend.rule=Host:web2.r4.ie
       - traefik.enable=true

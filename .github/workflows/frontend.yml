@@ -1,9 +1,9 @@
-name: Build&Deploy
+name: BuildFrontEnd
 on: [push]
 jobs:
 
   build:
-    name: Build Backend
+    name: Build FrontEnd
     runs-on: ubuntu-latest
     steps:
     - name: Executes SSH and Deploy

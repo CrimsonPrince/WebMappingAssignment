@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f92e3adbe28a63cfa469e60aa847763148f8e325330b2032be25045d9249a5e2"
+            "sha256": "c5158880198a6ee2d18e539109ff587f0c6e776ddbb7b1c3ba56238e0c2c5d30"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -63,6 +63,22 @@
             ],
             "index": "pypi",
             "version": "==1.0.4"
+        },
+        "djangorestframework": {
+            "hashes": [
+                "sha256:5488aed8f8df5ec1d70f04b2114abc52ae6729748a176c453313834a9ee179c8",
+                "sha256:dc81cbf9775c6898a580f6f1f387c4777d12bd87abf0f5406018d32ccae71090"
+            ],
+            "index": "pypi",
+            "version": "==3.10.3"
+        },
+        "djangorestframework-gis": {
+            "hashes": [
+                "sha256:35527c51e083ccc93f6e6d90a6515c132bbeb2c5648b166ac5b1a48c4ea8e2a4",
+                "sha256:e645c6c8aedee53ac0a4851abcdf8121fff66813eebae1b040b1ccb941cb248b"
+            ],
+            "index": "pypi",
+            "version": "==0.14"
         },
         "gunicorn": {
             "hashes": [

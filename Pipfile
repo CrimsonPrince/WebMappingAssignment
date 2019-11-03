@@ -19,6 +19,8 @@ sqlparse = "==0.3.0"
 urllib3 = "==1.25.6"
 xlwt = "==1.3.0"
 gunicorn = "*"
+djangorestframework-gis = "*"
+djangorestframework = "*"
 
 [dev-packages]
 

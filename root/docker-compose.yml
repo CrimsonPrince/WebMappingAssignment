@@ -5,7 +5,7 @@ services:
     build: .
     labels:
     - traefik.enable=true
-    - traefik.port=8000
+    - traefik.port=80
     - traefik.frontend.rule=Host:web.r4.ie
     - traefik.tags=${TRAEFIK_PUBLIC_TAG:-traefik-public}
     - traefik.docker.network=traefik-public

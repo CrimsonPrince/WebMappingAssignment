@@ -15,10 +15,6 @@ services:
     # Traefik service that listens to HTTPS
     - traefik.webservice.frontend.entryPoints=https
     command: gunicorn root.wsgi:application --workers 2 --bind :8000
-    volumes:
-      - .:/code
-    ports:
-      - "8000:8000"
     networks:
     - traefik-public
 

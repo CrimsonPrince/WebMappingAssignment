@@ -3,7 +3,7 @@ on: [push]
 jobs:
 
   build:
-    name: Build FrontEnd
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
     - name: Executes SSH and Deploy
@@ -18,5 +18,6 @@ jobs:
           git pull
           cd frontend
           ionic build --prod
+          cd ..
           docker-compose down
           docker-compose up --build -d

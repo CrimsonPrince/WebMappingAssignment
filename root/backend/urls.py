@@ -7,4 +7,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('details', views.detail, name="detail"),
     path('planning', views.GeojsonLocationList.as_view()),
+    path('planning/<pk>', views.GeojsonPlanning.as_view()),
 ]

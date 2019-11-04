@@ -19,6 +19,7 @@ jobs:
           git pull
           cd frontend
           /home/r4/.nvm/versions/node/v10.17.0/bin/ionic build --prod
+          printenv
 
   backend:
     name: DeployBackend

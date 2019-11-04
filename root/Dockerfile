@@ -9,7 +9,8 @@ RUN apt install -y \
 gdal-bin \
 libproj-dev \
 gunicorn \
-binutils
+binutils \
+nginx
 
 COPY Pipfile /
 COPY Pipfile.lock /
@@ -19,6 +20,7 @@ RUN pipenv install --system
 #Move App to /usr/src
 RUN mkdir app
 COPY . /app
+COPY ./nginx.conf /etc/nginx/nginx.conf
 WORKDIR /app
 
 #Set WorkDir To Application

@@ -19,7 +19,7 @@ jobs:
           docker-compose down
           docker-compose up --build -d
 
-    backend:
+  backend:
     name: DeployBackend
     runs-on: ubuntu-latest
     steps:

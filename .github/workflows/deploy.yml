@@ -20,19 +20,6 @@ jobs:
           cd frontend
           /home/r4/.nvm/versions/node/v10.17.0/bin/ionic build --prod
           printenv
-
-  backend:
-    name: DeployBackend
-    runs-on: ubuntu-latest
-    steps:
-    - name: Executes SSH and Deploy
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
-          cd WebMappingAssignment
+          cd ..
           docker-compose down
           docker-compose up --build -d

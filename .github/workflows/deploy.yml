@@ -18,7 +18,7 @@ jobs:
           cd WebMappingAssignment
           git pull
           cd frontend
-          ionic build --prod
+          /home/r4/.nvm/versions/node/v10.17.0/bin/ionic build --prod
 
   backend:
     name: DeployBackend

@@ -16,7 +16,7 @@ jobs:
         script: |
           cd WebMappingAssignment
           git pull
-          cd WebMappingAssignment/frontend
+          cd frontend
           docker-compose down
           docker-compose up --build -d
 
@@ -35,6 +35,6 @@ jobs:
         script: |
           cd WebMappingAssignment
           git pull
-          cd WebMappingAssignment/root
+          cd root
           docker-compose down
           docker-compose up --build -d

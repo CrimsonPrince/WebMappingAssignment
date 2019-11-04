@@ -10,6 +10,10 @@ class GeojsonLocationList(ListCreateAPIView):
     serializer_class = serializers.PlanningSerializer
     pagination_class = GeoJsonPagination
 
+class GeojsonPlanning(RetrieveUpdateDestroyAPIView):
+        queryset = models.Planning.objects.all()
+        serializer_class = serializers.PlanningSerializer
+
 def detail(request):
     return HttpResponse("Hiya")
 

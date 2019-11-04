@@ -12,7 +12,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        command_timeout: 2m
+        command_timeout: 5m
         script: |
           cd WebMappingAssignment/frontend
           git pull

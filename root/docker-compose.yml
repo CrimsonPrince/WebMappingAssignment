@@ -2,9 +2,7 @@ version: '3'
 
 services:
   web:
-    build:
-        context: .
-        dockerfile: Dockerfile-Backend
+    build: .
     labels:
     - traefik.enable=true
     - traefik.port=8000
@@ -23,26 +21,6 @@ services:
       - "8000:8000"
     networks:
     - traefik-public
-
-  ionic:
-    build:
-        context: .
-        dockerfile: Dockerfile-Frontend
-    labels:
-      - traefik.frontend.rule=Host:web2.r4.ie
-      - traefik.enable=true
-      - traefik.port=80
-      - traefik.tags=${TRAEFIK_PUBLIC_TAG:-traefik-public}
-      - traefik.docker.network=traefik-public
-      # Traefik service that listens to HTTP
-      - traefik.redirectorservice.frontend.entryPoints=http
-      - traefik.redirectorservice.frontend.redirect.entryPoint=https
-      # Traefik service that listens to HTTPS
-      - traefik.webservice.frontend.entryPoints=https
-    volumes:
-     - .:/code
-    networks:
-      - traefik-public
 
 networks:
   traefik-public:

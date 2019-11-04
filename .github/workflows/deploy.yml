@@ -1,7 +1,6 @@
 name: Deploy
 on: [push]
 jobs:
-
   frontend:
     name: DeployFrontend
     runs-on: ubuntu-latest
@@ -15,11 +14,25 @@ jobs:
         port: ${{ secrets.PORT }}
         debug: true
         script: |
-          cd WebMappingAssignment
+          cd WebMappingAssignment/frontend
           git pull
-          cd frontend
-          /home/r4/.nvm/versions/node/v10.17.0/bin/ionic build --prod
-          printenv
-          cd ..
+          docker-compose down
+          docker-compose up --build -d
+
+    backend:
+    name: DeployBackend
+    runs-on: ubuntu-latest
+    steps:
+    - name: Executes SSH and Deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        debug: true
+        script: |
+          cd WebMappingAssignment/root
+          git pull
           docker-compose down
           docker-compose up --build -d

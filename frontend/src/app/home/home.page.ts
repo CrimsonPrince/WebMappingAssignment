@@ -18,7 +18,7 @@ export class HomePage {
 
     ngAfterViewInit() {
         this.plt.ready().then(() => {
-          this.http.get('http://localhost:3000/locations')
+          this.http.get('http://web.r4.ie/planning')
           .subscribe(restaurants => this.initMap(restaurants));
         });
       }

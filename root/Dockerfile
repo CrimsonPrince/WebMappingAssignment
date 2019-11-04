@@ -11,8 +11,8 @@ libproj-dev \
 gunicorn \
 binutils
 
-COPY ../Pipfile /
-COPY ../Pipfile.lock /
+COPY Pipfile /
+COPY Pipfile.lock /
 RUN pip install pipenv
 RUN pipenv install --system
 

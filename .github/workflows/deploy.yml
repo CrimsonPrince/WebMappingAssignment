@@ -5,7 +5,6 @@ jobs:
   frontend:
     name: DeployFrontend
     runs-on: ubuntu-latest
-    debug: true
     steps:
     - name: Executes SSH and Deploy
       uses: appleboy/ssh-action@master

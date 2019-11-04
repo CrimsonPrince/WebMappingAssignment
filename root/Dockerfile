@@ -11,14 +11,14 @@ libproj-dev \
 gunicorn \
 binutils
 
-COPY Pipfile /
-COPY Pipfile.lock /
+COPY ../Pipfile /
+COPY ../Pipfile.lock /
 RUN pip install pipenv
 RUN pipenv install --system
 
 #Move App to /usr/src
 RUN mkdir app
-COPY ./root /app
+COPY . /app
 WORKDIR /app
 
 #Set WorkDir To Application

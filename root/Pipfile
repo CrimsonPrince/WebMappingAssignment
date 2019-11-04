@@ -21,6 +21,7 @@ xlwt = "==1.3.0"
 gunicorn = "*"
 djangorestframework-gis = "*"
 djangorestframework = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

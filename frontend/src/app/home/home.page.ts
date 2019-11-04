@@ -18,12 +18,12 @@ export class HomePage {
 
     ngAfterViewInit() {
         this.plt.ready().then(() => {
-          this.http.get('http://web.r4.ie/planning')
-          .subscribe(restaurants => this.initMap(restaurants));
+          this.http.get('https://web.r4.ie/planning')
+          .subscribe(planningApps => this.initMap(planningApps));
         });
       }
 
-      initMap(restaurants) {
+      initMap(planningApps) {
         const map = new Map('map').setView([53.3498, -6.2603], 12);
 
         tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -38,12 +38,12 @@ export class HomePage {
           popupAnchor: [0, -20]
         });
 
-        console.log(restaurants)
-        restaurants.forEach((restaurant) => {
-            console.log(restaurant)
-          marker([restaurant.geometry.coordinates[0], restaurant.geometry.coordinates[1]], {icon: customMarkerIcon})
-          .bindPopup(`<b>${restaurant.properties.name}</b>`, { autoClose: false })
-          .on('click', () => this.router.navigateByUrl('/restaurant'))
+        console.log(planningApps)
+        planningApps.forEach((planning) => {
+            console.log(planning)
+          marker([planning.geometry.coordinates[0], planning.geometry.coordinates[1]], {icon: customMarkerIcon})
+          .bindPopup(`<b>${planning.properties.name}</b>`, { autoClose: false })
+          .on('click', () => this.router.navigateByUrl('/planning'))
           .addTo(map).openPopup();
         });
       }

@@ -14,8 +14,9 @@ jobs:
         port: ${{ secrets.PORT }}
         command_timeout: 5m
         script: |
-          cd WebMappingAssignment/frontend
+          cd WebMappingAssignment
           git pull
+          cd WebMappingAssignment/frontend
           docker-compose down
           docker-compose up --build -d
 
@@ -32,7 +33,8 @@ jobs:
         port: ${{ secrets.PORT }}
         command_timeout: 2m
         script: |
-          cd WebMappingAssignment/root
+          cd WebMappingAssignment
           git pull
+          cd WebMappingAssignment/root
           docker-compose down
           docker-compose up --build -d

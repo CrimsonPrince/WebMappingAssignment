@@ -8,7 +8,6 @@ jobs:
     steps:
     - name: Executes SSH and Deploy
       uses: appleboy/ssh-action@master
-      debug: true
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}

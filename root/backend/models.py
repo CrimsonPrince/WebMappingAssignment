@@ -16,4 +16,4 @@ class Planning(models.Model):
 
     class Meta:
         # order of drop-down list items
-        ordering = ('OBJECTID',)
+        ordering = ('id',)

@@ -14,7 +14,10 @@ services:
     - traefik.redirectorservice.frontend.redirect.entryPoint=https
     # Traefik service that listens to HTTPS
     - traefik.webservice.frontend.entryPoints=https
-    command: gunicorn root.wsgi:application --workers 2 --bind :8000
+    - traefik.http.middlewares.testheader.headers.accesscontrolalloworigin=*
+    command: gunicorn root.wsgi:application --workers 2 --bind :8010
+    ports:
+    - "8000:8010"
     networks:
     - traefik-public
 

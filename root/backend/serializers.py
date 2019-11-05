@@ -5,7 +5,6 @@ from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 class PlanningSerializer(GeoFeatureModelSerializer):
     """ A class to serialize locations as GeoJSON compatible data """
-
     class Meta:
         model = models.Planning
         geo_field = "geometry"

@@ -3,6 +3,7 @@ FROM marcoturi/ionic
 RUN mkdir app
 WORKDIR app
 COPY . .
+RUN npm install
 RUN ionic build --prod
 
 FROM httpd:2.4

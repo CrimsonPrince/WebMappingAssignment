@@ -5,7 +5,7 @@ services:
     build: .
     labels:
     - traefik.enable=true
-    - traefik.port=80
+    - traefik.port=8000
     - traefik.frontend.rule=Host:web.r4.ie
     - traefik.tags=${TRAEFIK_PUBLIC_TAG:-traefik-public}
     - traefik.docker.network=traefik-public
@@ -15,9 +15,7 @@ services:
     # Traefik service that listens to HTTPS
     - traefik.webservice.frontend.entryPoints=https
     - traefik.http.middlewares.testheader.headers.accesscontrolalloworigin=*
-    command: gunicorn root.wsgi:application --workers 2 --bind :8010
-    ports:
-    - "8000:8010"
+    command: gunicorn root.wsgi:application --workers 2 --bind :8000
     networks:
     - traefik-public
 

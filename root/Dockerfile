@@ -8,7 +8,6 @@ RUN apt update
 RUN apt install -y \
 gdal-bin \
 libproj-dev \
-gunicorn \
 binutils
 
 COPY Pipfile /

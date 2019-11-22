@@ -17,7 +17,6 @@ jobs:
           cd WebMappingAssignment
           git pull
           cd frontend
-          docker-compose down
           docker-compose up -d
 
   backend:
@@ -36,5 +35,4 @@ jobs:
           cd WebMappingAssignment
           git pull
           cd root
-          docker-compose down
           docker-compose up -d

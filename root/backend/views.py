@@ -7,7 +7,7 @@ from rest_framework_gis.pagination import GeoJsonPagination
 
 class GeojsonLocationList(ListCreateAPIView):
     queryset = models.State.objects.all()
-    serializer_class = serializers.ElectoralDivisionSerializer
+    serializer_class = serializers.StateSerializer
     pagination_class = GeoJsonPagination
 
 class GeojsonPlanning(RetrieveUpdateDestroyAPIView):

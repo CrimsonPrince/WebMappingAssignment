@@ -13,9 +13,9 @@ class ElectoralDivision(models.Model):
     CENTROID_Y = models.CharField(max_length=10)
     GUID = models.CharField(max_length=1000)
     ObjectID_1 = models.CharField(max_length=1000)
-    Shape_Area = models.CharField(max_length=1000)
-    Shape_Length = models.CharField(max_length=1000)
-    geometry = geomodels.PolygonField()
+    Shape_Area = models.CharField(max_length=1000, blank=True, null=True)
+    Shape_Length = models.CharField(max_length=1000, blank=True, null=True)
+    geometry = geomodels.MultiPolygonField()
 
     class Meta:
         # order of drop-down list items

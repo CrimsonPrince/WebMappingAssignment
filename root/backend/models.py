@@ -1,18 +1,21 @@
 from django.contrib.gis.db import models
 from django.contrib.gis.db import models as geomodels
 
-class Planning(models.Model):
+class ElectoralDivision(models.Model):
     OBJECTID = models.CharField(max_length=100, blank=False)
-    Planning_Authority = models.CharField(max_length=100)
-    Tier = models.CharField(max_length=10)
-    Planning_Reference = models.CharField(max_length=100)
-    Planning_Permission_Units_Perm = models.CharField(max_length=10, blank=True, null=True)
-    Units_Completed_to_Date = models.CharField(max_length=10)
-    Units_Under_Construction = models.CharField(max_length=10)
-    Activity_On_Site = models.CharField(max_length=2)
-    Units_Permitted_But_Not_Commenc = models.CharField(max_length=10)
-    Planning_Search_URL = models.CharField(max_length=1000)
-    geometry = geomodels.PointField()
+    LE_ID = models.CharField(max_length=100)
+    LE_ENGLISH = models.CharField(max_length=10)
+    LE_GAEILGE = models.CharField(max_length=100)
+    COUNTY = models.CharField(max_length=10, blank=True, null=True)
+    CONTAE = models.CharField(max_length=10)
+    PROVINCE = models.CharField(max_length=10)
+    CENTROID_X = models.CharField(max_length=2)
+    CENTROID_Y = models.CharField(max_length=10)
+    GUID = models.CharField(max_length=1000)
+    ObjectID_1 = models.CharField(max_length=1000)
+    Shape_Area = models.CharField(max_length=1000)
+    Shape_Length = models.CharField(max_length=1000)
+    geometry = geomodels.PolygonField()
 
     class Meta:
         # order of drop-down list items

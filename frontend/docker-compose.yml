@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  ionic:
+    build: .
+    labels:
+    - "traefik.enable=true"
+    - "traefik.http.middlewares.frontedWeb-https.redirectscheme.scheme=https"
+    - "traefik.http.routers.frontedWeb-http.entrypoints=web"
+    - "traefik.http.routers.frontedWeb-http.rule=Host(`webmap.r4.ie`)"
+    - "traefik.http.routers.frontedWeb-http.middlewares=frontedWeb-https@docker"
+    - "traefik.http.routers.frontedWeb.entrypoints=web-secure"
+    - "traefik.http.routers.frontedWeb.rule=Host(`webmap.r4.ie`)"
+    - "traefik.http.routers.frontedWeb.tls=true"
+    - "traefik.http.routers.frontedWeb.tls.certresolver=default"
+    volumes:
+     - .:/code
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true

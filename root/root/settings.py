@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from dotenv import load_dotenv
-load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -134,13 +132,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-
-LEAFLET_CONFIG = {
-'DEFAULT_CENTER': ( 53.338501, -6.266567 ),
-'DEFAULT_ZOOM': 16,
-'MIN_ZOOM': 3,
-'MAX_ZOOM': 18,
-}
 
 CORS_ORIGIN_ALLOW_ALL = True

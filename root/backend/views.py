@@ -12,7 +12,7 @@ class GeojsonLocationList(ListCreateAPIView):
 
 class GeojsonPlanning(RetrieveUpdateDestroyAPIView):
     queryset = models.State.objects.all()
-    serializer_class = serializers.StateDivisionSerializer
+    serializer_class = serializers.StateSerializer
 
 def detail(request):
     return HttpResponse("Testing Detail")

@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import { Platform } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { Map, tileLayer, marker, icon, geoJson } from 'leaflet';
+import {Map,tileLayer,marker} from 'leaflet';
 import * as L from "leaflet";
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -13,37 +9,74 @@ import { map } from 'rxjs/operators';
 })
 export class HomePage {
 
-  constructor(public http: HttpClient,
-    public plt: Platform,
-    public router: Router) {}
+  constructor() {
 
-    var data =
-
-    ngAfterViewInit() {
-        // this.plt.ready().then(() => {
-        //   this.http.get('https://web.r4.ie/planning')
-        //   .subscribe(planningApps => this.initMap(planningApps));
-        // });
-        this.initMap();
-      }
-
-      initMap() {
-        const map = new Map('map').setView([53.3498, -6.2603], 12);
-
-        tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            useCache: true,
-            crossOrigin: true,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        geoJson(data).addTo(map)
-    //     planningApps.features.forEach((planning) => {
-    //    marker([planning.geometry.coordinates[1], planning.geometry.coordinates[0]])
-    //         .bindPopup(`<b>${planning.properties.Planning_Reference}</b>`, { autoClose: false })
-    //         .on('click', () => this.router.navigate(['/details/' + planning.id]))
-    //         .addTo(map); } );
-      }
+  }
 
 
+
+  ionViewDidEnter()
+  {
+    let map = new Map("map").setView([37.8, -96], 4);
+    tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    { attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'}).addTo(map);
+
+    function getColor(d) {
+        return d > 1000 ? '#800026' :
+               d > 500  ? '#BD0026' :
+               d > 200  ? '#E31A1C' :
+               d > 100  ? '#FC4E2A' :
+               d > 50   ? '#FD8D3C' :
+               d > 20   ? '#FEB24C' :
+               d > 10   ? '#FED976' :
+                          '#FFEDA0';
+    }
+
+    function style(feature) {
+        return {
+            fillColor: getColor(feature.properties.density),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+        };
+    }
+
+    function highlightFeature(e) {
+        var layer = e.target;
+
+        layer.setStyle({
+            weight: 5,
+            color: '#666',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+        }
+    }
+    let geojson;
+
+    function resetHighlight(e) {
+        geojson.resetStyle(e.target);
+    }
+
+    function onEachFeature(feature, layer) {
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: zoomToFeature
+        });
+    }
+
+    geojson = L.geoJSON(statesData, {
+        style: style,
+        onEachFeature: onEachFeature
+    }).addTo(map);
+
+
+  }
 
 }

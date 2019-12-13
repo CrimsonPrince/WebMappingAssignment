@@ -22,12 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'bw3g9-b3+jzv*s%0*mty&q=%vynvxah!7$*n3^=uao7mrt08)e'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ['web.r4.ie', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost').split(',')
 
 
 
@@ -84,14 +84,15 @@ WSGI_APPLICATION = 'root.wsgi.application'
 
 DATABASES = {
     'default': {
-         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-         'NAME': 'gis',
-         'USER':   os.getenv("sqlUser"),
-         'PASSWORD': os.getenv("sqlPass"),
-         'HOST': 'r4.ie',
-         'PORT': '5434',
+         'ENGINE': os.getenv('DATABASE_ENGINE', 'django.contrib.gis.db.backends.postgis'),
+         'NAME': os.getenv('DATABASE_NAME', 'gis'),
+         'USER': os.getenv('DATABASE_USERNAME', 'r4'),
+         'PASSWORD': os.getenv('DATABASE_PASSWORD', 'postgres'),
+         'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
+         'PORT': os.getenv('DATABASE_PORT', 5432),
     },
 }
+
 
 
 
@@ -131,12 +132,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 LEAFLET_CONFIG = {
 'DEFAULT_CENTER': ( 53.338501, -6.266567 ),

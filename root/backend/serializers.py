@@ -3,10 +3,10 @@ from . import models
 
 from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
-class ElectoralDivisionSerializer(GeoFeatureModelSerializer):
+class StateSerializer(GeoFeatureModelSerializer):
     """ A class to serialize locations as GeoJSON compatible data """
     class Meta:
-        model = models.ElectoralDivision
+        model = models.State
         geo_field = "geometry"
 
         # you can also explicitly declare which fields you want to include

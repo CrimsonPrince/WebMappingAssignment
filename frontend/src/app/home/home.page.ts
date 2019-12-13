@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {Map,tileLayer,marker} from 'leaflet';
 import * as L from "leaflet";
+import { HttpClient } from '@angular/common/http';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +11,8 @@ import * as L from "leaflet";
 })
 export class HomePage {
 
-  constructor() {
+  constructor(public http: HttpClient,
+    public plt: Platform) {
 
   }
 
@@ -18,7 +21,7 @@ export class HomePage {
   ionViewDidEnter()
   {
     this.plt.ready().then(() => {
-        this.http.get('https://api.r4.ie/planning')
+        this.http.get('https://api.r4.ie/division')
         .subscribe(statesData => this.initMap(statesData));
       });
   }

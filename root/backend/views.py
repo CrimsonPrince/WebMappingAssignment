@@ -11,8 +11,8 @@ class GeojsonLocationList(ListCreateAPIView):
     pagination_class = GeoJsonPagination
 
 class GeojsonPlanning(RetrieveUpdateDestroyAPIView):
-        queryset = models.ElectoralDivision.objects.all()
-        serializer_class = serializers.ElectoralDivisionSerializer
+    queryset = models.ElectoralDivision.objects.all()
+    serializer_class = serializers.ElectoralDivisionSerializer
 
 def detail(request):
     return HttpResponse("Testing Detail")

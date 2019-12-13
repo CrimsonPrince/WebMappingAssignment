@@ -5,14 +5,14 @@ services:
     image: crimsonprince/webmapping
     labels:
     - "traefik.enable=true"
-    - "traefik.http.middlewares.fypbackend-https.redirectscheme.scheme=https"
-    - "traefik.http.routers.fypbackend-http.entrypoints=web"
-    - "traefik.http.routers.fypbackend-http.rule=Host(`api.r4.ie`)"
-    - "traefik.http.routers.fypbackend-http.middlewares=fypbackend-https@docker"
-    - "traefik.http.routers.fypbackend.entrypoints=web-secure"
-    - "traefik.http.routers.fypbackend.rule=Host(`api.r4.ie`)"
-    - "traefik.http.routers.fypbackend.tls=true"
-    - "traefik.http.routers.fypbackend.tls.certresolver=default"
+    - "traefik.http.middlewares.webmapping-https.redirectscheme.scheme=https"
+    - "traefik.http.routers.webmapping-http.entrypoints=web"
+    - "traefik.http.routers.webmapping-http.rule=Host(`api.r4.ie`)"
+    - "traefik.http.routers.webmapping-http.middlewares=webmapping-https@docker"
+    - "traefik.http.routers.webmapping.entrypoints=web-secure"
+    - "traefik.http.routers.webmapping.rule=Host(`api.r4.ie`)"
+    - "traefik.http.routers.webmapping.tls=true"
+    - "traefik.http.routers.webmapping.tls.certresolver=default"
     environment:
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
       DEBUG: ${DEBUG}

@@ -11,3 +11,4 @@ jobs:
         name: ${{ secrets.DOCKER_IMAGE }}
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+        workdir: root

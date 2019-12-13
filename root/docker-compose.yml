@@ -13,6 +13,7 @@ services:
     - "traefik.http.routers.webmapping.rule=Host(`api.r4.ie`)"
     - "traefik.http.routers.webmapping.tls=true"
     - "traefik.http.routers.webmapping.tls.certresolver=default"
+    - traefik.frontend.headers.customResponseHeaders=Access-Control-Allow-Origin:*
     environment:
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
       DEBUG: ${DEBUG}

@@ -1,7 +1,7 @@
 from django.contrib.gis.db import models
 from django.contrib.gis.db import models as geomodels
 
-class ElectoralDivision(models.Model):
+class State(models.Model):
     name = models.CharField(max_length=100, blank=False)
     density = models.CharField(max_length=100)
     id = models.CharField(max_length=10, primary_key=True)

@@ -21,7 +21,7 @@ export class HomePage {
   ionViewDidEnter()
   {
     this.plt.ready().then(() => {
-        this.http.get('https://api.r4.ie/division')
+        this.http.get('https://api.r4.ie/state?format=json')
         .subscribe(statesData => this.initMap(statesData));
       });
   }
@@ -80,8 +80,7 @@ export class HomePage {
     function onEachFeature(feature, layer) {
         layer.on({
             mouseover: highlightFeature,
-            mouseout: resetHighlight,
-            click: zoomToFeature
+            mouseout: resetHighlight
         });
     }
 

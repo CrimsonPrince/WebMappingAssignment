@@ -15,7 +15,7 @@ class GeojsonPlanning(RetrieveUpdateDestroyAPIView):
         serializer_class = serializers.ElectoralDivisionSerializer
 
 def detail(request):
-    return HttpResponse("Hiya")
+    return HttpResponse("Testing Detail")
 
 def index(request):
-    return HttpResponse("Hiya")
+    return HttpResponse("Testing Index")

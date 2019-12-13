@@ -6,13 +6,13 @@ from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView,
 from rest_framework_gis.pagination import GeoJsonPagination
 
 class GeojsonLocationList(ListCreateAPIView):
-    queryset = models.Planning.objects.all()
-    serializer_class = serializers.PlanningSerializer
+    queryset = models.ElectoralDivision.objects.all()
+    serializer_class = serializers.ElectoralDivisionSerializer
     pagination_class = GeoJsonPagination
 
 class GeojsonPlanning(RetrieveUpdateDestroyAPIView):
-        queryset = models.Planning.objects.all()
-        serializer_class = serializers.PlanningSerializer
+        queryset = models.ElectoralDivision.objects.all()
+        serializer_class = serializers.ElectoralDivisionSerializer
 
 def detail(request):
     return HttpResponse("Hiya")

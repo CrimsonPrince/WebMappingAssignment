@@ -36,14 +36,14 @@ export class HomePage {
     { attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'}).addTo(map);
 
     function getColor(d) {
-        return d > 1000 ? '#800026' :
-               d > 500  ? '#BD0026' :
-               d > 200  ? '#E31A1C' :
-               d > 100  ? '#FC4E2A' :
-               d > 50   ? '#FD8D3C' :
-               d > 20   ? '#FEB24C' :
-               d > 10   ? '#FED976' :
-                          '#FFEDA0';
+        return d > 1000 ? '#016450' :
+               d > 500  ? '#02818a' :
+               d > 200  ? '#3690c0' :
+               d > 100  ? '#67a9cf' :
+               d > 50   ? '#a6bddb' :
+               d > 20   ? '#d0d1e6' :
+               d > 10   ? '#ece2f0' :
+                          '#fff7fb';
     }
 
     function style(feature) {

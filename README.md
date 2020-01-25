@@ -4,20 +4,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <h3 align="center">YOUR_TITLE</h3>
-
-  <p align="center">
-    YOUR_SHORT_DESCRIPTION
-    <br />
-    <a href="https://github.com/crimsonprince/WebMappingAssignment"><strong>Explore the docs »</strong></a>
-    .
-    <br />
-    <a href="https://github.com/crimsonprince/WebMappingAssignment">View Demo</a>
-    ·
-    <a href="https://github.com/crimsonprince/WebMappingAssignment/issues">WebMappingAssignmentrt Bug</a>
-    ·
-    <a href="https://github.com/crimsonprince/WebMappingAssignment/issues">Request Feature</a>
-  </p>
+  <h3 align="center">WebMapping assignment</h3>
 </p>
 
 
@@ -32,26 +19,22 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
 
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+Project designed for WebMapping Two Assignment
 
 
 
 ### Built With
 
-* []()
-* []()
-* []()
+* [Docker](https://www.docker.com/)
+
 
 
 
@@ -74,39 +57,40 @@ npm install npm@latest -g
 ```sh
 git clone https://github.com/crimsonprince/WebMappingAssignment.git
 ```
-2. Install NPM packages
+2. Create Network
 ```sh
-npm install
+docker create network traefik
 ```
-
-
+3. Deploy Traefik
+```sh
+docker-compose up -d
+```
+4. Deploy Frontend
+```sh
+cd frontend
+docker-compose up -d
+```
+5. Create a .env file in the backend folder with the outlined Keys
+```sh
+DJANGO_SECRET_KEY:
+DEBUG:
+DJANGO_ALLOWED_HOSTS:
+DATABASE_ENGINE:
+DATABASE_NAME:
+DATABASE_USERNAME:
+DATABASE_PASSWORD:
+DATABASE_HOST:
+DATABASE_PORT:
+```
+5. Deploy Backend
+```sh
+docker-compose up -d
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/crimsonprince/WebMappingAssignment/issues) for a list of proposed features (and known issues).
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 
 
 <!-- LICENSE -->
@@ -124,10 +108,3 @@ Your Name - kingr4@protonmail.ch
 Project Link: [https://github.com/crimsonprince/WebMappingAssignment](https://github.com/crimsonprince/WebMappingAssignment)
 
 
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* []()
-* []()
-* []()

@@ -44,12 +44,10 @@ Project designed for WebMapping Two Assignment
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
 ```sh
-npm install npm@latest -g
+Ensure you have the latest working Docker installation and the folder structure specified in the docker-compose
 ```
+
 
 ### Installation
 

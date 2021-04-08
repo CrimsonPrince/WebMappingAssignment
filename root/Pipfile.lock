@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "fced90f7974e2c484133ed3e02043c59be932b0c521a762eeb853bdc715ddbb9"
+            "sha256": "8e6b9a39e34f2684a8a33e1aa8afa9ab3e0063a535ec338fe4fcb4f59edd0e5c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -34,11 +34,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:4025317ca01f75fc79250ff7262a06d8ba97cd4f82e93394b2a0a6a4a925caeb",
-                "sha256:a8ca1033acac9f33995eb2209a6bf18a4681c3e5269a878e9a7e0b7384ed1ca3"
+                "sha256:2484f115891ab1a0e9ae153602a641fbc15d7894c036d79fb78662c0965d7954",
+                "sha256:2569f9dc5f8e458a5e988b03d6b7a02bda59b006d6782f4ea0fd590ed7336a64"
             ],
             "index": "pypi",
-            "version": "==2.2.6"
+            "version": "==2.2.20"
         },
         "django-admin": {
             "hashes": [
@@ -82,7 +82,8 @@
         },
         "djangorestframework-gis": {
             "hashes": [
-                "sha256:63c253528a107bc77cd71506cd639a0489b05b763fa7c3190cfd4622bf094594"
+                "sha256:63c253528a107bc77cd71506cd639a0489b05b763fa7c3190cfd4622bf094594",
+                "sha256:f388c159ab42ee2549c88de20655dc6020d01f0220b74c250a98735a26835f72"
             ],
             "index": "pypi",
             "version": "==0.15"

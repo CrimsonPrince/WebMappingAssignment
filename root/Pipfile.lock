@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "fced90f7974e2c484133ed3e02043c59be932b0c521a762eeb853bdc715ddbb9"
+            "sha256": "7d67c01e02d593ed0803aea8fde03ad574cbaca28c601ecfcbbd22fbbbec5e7a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,11 +18,11 @@
     "default": {
         "certifi": {
             "hashes": [
-                "sha256:e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50",
-                "sha256:fd7c7c74727ddcf00e9acd26bba8da604ffec95bf1c2144e67aff7a8b50e6cef"
+                "sha256:35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3",
+                "sha256:4ad3232f5e926d6718ec31cfc1fcadfde020920e278684144551c91769c7bc18"
             ],
             "index": "pypi",
-            "version": "==2019.9.11"
+            "version": "==2022.12.7"
         },
         "chardet": {
             "hashes": [
@@ -82,7 +82,8 @@
         },
         "djangorestframework-gis": {
             "hashes": [
-                "sha256:63c253528a107bc77cd71506cd639a0489b05b763fa7c3190cfd4622bf094594"
+                "sha256:63c253528a107bc77cd71506cd639a0489b05b763fa7c3190cfd4622bf094594",
+                "sha256:f388c159ab42ee2549c88de20655dc6020d01f0220b74c250a98735a26835f72"
             ],
             "index": "pypi",
             "version": "==0.15"
